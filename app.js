@@ -101,3 +101,13 @@ predictBtn.addEventListener("click", async () => {
         ul.appendChild(li);
     })
 })
+
+let clearBtn = document.querySelector("#clearBtn");
+
+clearBtn.addEventListener("click", () => {
+  let img = document.querySelector("#output-img");
+  img.src = "";
+  let box = document.querySelector("#output");
+  box.style.display = "none";
+
+})

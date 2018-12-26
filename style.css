@@ -1,10 +1,7 @@
-#prog-bar {
-    width: 100%;
-    background-color: grey;
+.center-div {
+    text-align: center;
 }
-  
-#bar {
-width: 1%;
-height: 30px;
-background-color: green;
+
+.center-container {
+    text-align: center;
 }
