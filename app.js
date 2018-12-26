@@ -17,9 +17,11 @@ async function loadModel() {
   console.log("model loading..");
 
   // display model loading progress box
+
   loader = document.querySelector(".loader");
   loader.style.display = "block";
   load_button = document.getElementById("loadBtn");
+  load_button.innerHTML = "Loading"
 
   // model name is "mobilenet"
   modelName = "mobilenet";
