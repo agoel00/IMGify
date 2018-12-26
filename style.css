@@ -5,3 +5,16 @@
 .center-container {
     text-align: center;
 }
+
+.center-results {
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+#output-img {
+    margin-bottom: 7px;
+}
+
+.input-group {
+    margin: 7px;
+}

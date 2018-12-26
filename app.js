@@ -17,9 +17,9 @@ async function loadModel() {
   console.log("model loading..");
 
   // display model loading progress box
-//   loader = document.getElementById("progress-box");
+  loader = document.querySelector(".loader");
+  loader.style.display = "block";
   load_button = document.getElementById("loadBtn");
-//   loader.style.display = "block";
 
   // model name is "mobilenet"
   modelName = "mobilenet";
@@ -31,7 +31,7 @@ async function loadModel() {
   model = await tf.loadModel('model/model.json');
   
   // hide model loading progress box
-//   loader.style.display = "none";
+  loader.style.display = "none";
   load_button.disabled = true;
   load_button.innerHTML = "Loaded Model";
   console.log("model loaded..");
@@ -90,14 +90,20 @@ predictBtn.addEventListener("click", async () => {
         }).slice(0, 5);
     
     console.log(results);
-    document.getElementById('prediction').innerHTML = "MobileNet prediction - <b>" + results[0].className + "</b>"
+    document.getElementById('prediction').innerHTML = "Prediction: -<br> <b>" + results[0].className + "</b>"
 
     var ul = document.getElementById("predict-list")
     ul.innerHTML = "";
     results.forEach(function (p) {
         console.log(p.className + " " + p.probability.toFixed(6));
         var li = document.createElement("LI");
-        li.innerHTML = p.className + " " + p.probability.toFixed(6);
+        // li.innerHTML = p.className + " " + p.probability.toFixed(6);
+        li.innerHTML = p.className
+        li.setAttribute('class', 'list-group-item d-flex justify-content-between align-items-center')
+        var span = document.createElement("span");
+        span.innerHTML = p.probability.toFixed(6)
+        span.setAttribute('class', 'badge badge-primary badge-pill')
+        li.appendChild(span)
         ul.appendChild(li);
     })
 })
@@ -110,4 +116,11 @@ clearBtn.addEventListener("click", () => {
   let box = document.querySelector("#output");
   box.style.display = "none";
 
+})
+
+let alertBtn = document.querySelector("#alert-btn");
+
+alertBtn.addEventListener("click", () => {
+  let out = document.querySelector("#output");
+  out.style.display = "none";
 })
