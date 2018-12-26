@@ -4,8 +4,8 @@
   "theme_color": "#219bf3",
   "background_color": "#2196f3",
   "display": "fullscreen",
-  "Scope": "/IMGify/",
-  "start_url": ".",
+  "Scope": ".",
+  "start_url": "/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
