@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="loading.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.1/dist/tf.min.js"></script>
     <script src="imagenet_classes.js" type="text/javascript" ></script>
+    <link rel="manifest" href="manifest.json">
     <title>Image Classification</title>
 </head>
 <body>
@@ -62,6 +63,20 @@
         </div>
     </div>
 
+    <script>
+    //This is the "Offline copy of pages" service worker
+
+    //Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+    if (navigator.serviceWorker.controller) {
+    console.log('Active service worker found, no need to register')
+    } else {
+    //Register the ServiceWorker
+    navigator.serviceWorker.register('sw.js').then(function(reg) {
+        console.log('Service worker has been registered for scope:'+ reg.scope);
+    });
+    }
+
+    </script>
 
     <script src="app.js"></script>
 </body>
